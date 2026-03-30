@@ -13,8 +13,8 @@ cat logs/* | grep "slorado" | grep "REST.GET.OBJECT" | grep " 200 " | wc -l > sl
 
 git config --global user.email "action@github.com" || die "Failed to configure git email"
 git config --global user.name "GitHub Action" || die "Failed to configure git name"
-git add slorado.txt || die "adding failed"
 if ! git diff --cached --quiet slorado.txt; then
+	git add slorado.txt || die "adding failed"
     git commit -m "Update download counts" || die "commit failed"
 	git push || die "push failed"
 fi
